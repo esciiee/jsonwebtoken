@@ -28,11 +28,11 @@ pem = { version = "3", optional = true }
 simple_asn1 = { version = "0.6", optional = true }
 
 [target.'cfg(not(target_arch = "wasm32"))'.dependencies]
-ring = { version = "0.17.4", features = ["std"] }
+ring = { version = "0.17.4", features = ["std", "less-safe-getrandom-custom-or-rdrand"] }
 
 [target.'cfg(target_arch = "wasm32")'.dependencies]
 js-sys = "0.3"
-ring = { version = "0.17.4", features = ["std", "wasm32_unknown_unknown_js"] }
+ring = { version = "0.17.4", features = ["std", "wasm32_unknown_unknown_js", "less-safe-getrandom-custom-or-rdrand"] }
 
 [dev-dependencies]
 wasm-bindgen-test = "0.3.1"
